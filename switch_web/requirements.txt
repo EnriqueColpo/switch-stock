@@ -1,0 +1,4 @@
+django
+ipdb
+psycopg2
+pillow>=8.3.2

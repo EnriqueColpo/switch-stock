@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+{% block card-header %}
+Productos
+{% endblock%}
+<!DOCTYPE html>
+{% block container %}
+
+    {% if productos %}
+
+    <table class="table table-hover">
+        
+        
+        <thead>
+          <tr>
+            <th scope="col">Producto</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Imagen</th>
+
+          </tr>
+        </thead>
+
+        {% for post in productos %}
+
+            <tbody>
+    
+              <tr>
+                <td>{{post.producto_nombre}}</td>
+                <td>{{post.categoria}}</td>
+                <td>{{post.descripcion}}</td>
+                <td><img src="/media/{{ post.imagen }}" style=" max-width: 180px;"></td>
+              </tr>
+            {% endfor %}
+            </tbody>
+      </table>
+    {% endif %}
+
+{% endblock %}

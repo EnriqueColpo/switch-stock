@@ -1,0 +1,15 @@
+#!/bin/sh
+
+set -e
+  
+  
+until PGPASSWORD="$DB_PASS" psql -h postgres_db -U "$DB_USER" "$DB_NAME" -c '\q'; do
+  >&2 echo "Postgres is unavailable - sleeping"
+  sleep 5
+done
+  
+>&2 echo "Postgres is up - executing command"
+
+python manage.py migrate --no-input
+python manage.py collectstatic --no-input
+python manage.py runserver 0.0.0.0:8000

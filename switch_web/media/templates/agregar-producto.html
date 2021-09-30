@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+<!DOCTYPE html>
+
+{% block card-header %}
+Producto
+{% endblock%}
+
+{% block container %}
+
+
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {# Website field #}
+
+    
+
+    {{ form.as_p }}
+
+
+    <div class="card-body">
+        <button type="submit" class="btn btn-dark" style="width: 100%;">Publish!</button>
+    </div>
+
+    
+
+</form>
+
+{% endblock %}

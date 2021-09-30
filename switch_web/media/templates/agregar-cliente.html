@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load static %}
+
+<!DOCTYPE html>
+
+{% block card-header %}
+	Cliente
+{% endblock%}
+
+{% block container %}
+
+
+<form method="POST" enctype="multipart/form-data">
+
+	{% csrf_token %}
+
+	<div class="card-body">
+		<div class="form-group">
+			<input class="form-control {% if form.cliente_nombre.errors %}is-invalid{% endif %}" type="text"
+				name="cliente_nombre" placeholder="Nombre del cliente">
+			<div class="invalid-feedback">
+				{% for error in form.cliente_nombre.errors %}{{ error }}{% endfor %}
+			</div>
+		</div>
+	</div>
+
+	<div class="card-body">
+		<div class="form-group">
+			<input class="form-control {% if form.cliente_apellido.errors %}is-invalid{% endif %}" type="text"
+				name="cliente_apellido" placeholder="Apellido del cliente">
+			<div class="invalid-feedback">
+				{% for error in form.cliente_apellido.errors %}
+					{{ error }}
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+
+    <div class="card-body">
+		<div class="form-group">
+			<input class="form-control {% if form.cliente_email.errors %}is-invalid{% endif %}" type="text"
+				name="cliente_email" placeholder="Email del cliente">
+			<div class="invalid-feedback">
+				{% for error in form.cliente_email.errors %}
+					{{ error }}
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+
+    <div class="card-body">
+		<div class="form-group">
+			<input class="form-control {% if form.cliente_telefono.errors %}is-invalid{% endif %}" type="text"
+				name="cliente_telefono" placeholder="Telefono del cliente">
+			<div class="invalid-feedback">
+				{% for error in form.cliente_telefono.errors %}
+					{{ error }}
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+
+	<div class="card-body">
+		<button type="submit" class="btn btn-dark" style="width: 100%;">Publish!</button>
+	</div>
+
+</form>
+
+
+
+
+{% endblock %}

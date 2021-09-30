@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+    postgres_db:
+        image: 'postgres:latest'
+        volumes: 
+            - postgres_switch:/var/lib/postgresql/data/
+        environment:
+            - POSTGRES_USER=postgres_user
+            - POSTGRES_PASSWORD=postgres_pw
+            - POSTGRES_DB=postgres_database
+        ports:
+            - 5432:5432
+    web:
+        build:
+            context: .
+            dockerfile: ./compose/dev/django/Dockerfile
+        command: /start
+        volumes:
+            - ./switch_web:/switch_web
+        ports: 
+            - 8000:8000
+        env_file:
+            - ./compose/dev/.env
+        depends_on:
+            - postgres_db
+volumes:
+    postgres_switch:
+        external: True
+

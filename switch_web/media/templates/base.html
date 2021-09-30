@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static './css/bootstrap.min.css' %}">
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <title>Django + Bootstrap</title>
+
+</head>
+
+<body style="background-color: #F7FAFF;">
+    <!-- Navigation-->
+    {% include "nav.html" %}
+    
+
+    <div class="container-fluid">
+
+        <div class="row" style="margin-top: 20px; max-width: 100%;">
+            
+            <div class="col-4" style="padding: 0px 0px 0px 0px;">
+                {% include "sidebar.html" %}
+            </div>
+    
+            <div class="col-8"  style="padding: 0px 0px 0px 0px;">
+                <div class="card border-light mb-3">
+                    <h3 class="card-header">
+                        {% block card-header %}
+                        {% endblock%}
+                    </h3>
+                    <div class="card-body">
+                        {% block container %}
+                        {% endblock%}
+                    </div>
+                </div>
+            </div>
+    
+        </div>
+    </div>
+    
+
+
+    <!-- Footer-->
+    <footer">
+        <div class="container" style="margin-bottom: 30px;">
+            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2021</p>
+        </div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

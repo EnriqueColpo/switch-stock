@@ -1,0 +1,4 @@
+*/media/images/*
+switch_web/switch_web/__pycache__/*
+switch_web/static/*
+switch_web/stock_control/migrations/*

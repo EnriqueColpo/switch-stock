@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+
+<!DOCTYPE html>
+
+{% block card-header %}
+	Marca
+{% endblock%}
+
+{% block container %}
+
+
+<form method="POST" enctype="multipart/form-data">
+	{% csrf_token %}
+
+	<div class="card-body">
+
+		{# Website field #}
+		<div class="form-group">
+			<input class="form-control {% if form.marca_nombre.errors %}is-invalid{% endif %}" type="text"
+				name="marca_nombre" placeholder="Nombre">
+			<div class="invalid-feedback">
+				{% for error in form.marca_nombre.errors %}{{ error }}{% endfor %}
+			</div>
+		</div>
+	
+	</div>
+
+	<div class="card-body">
+		<div class="form-group">
+			<input class="form-control {% if form.marca_pais.errors %}is-invalid{% endif %}" type="text"
+				name="marca_pais" placeholder="Pais de origen">
+			<div class="invalid-feedback">
+				{% for error in form.marca_pais.errors %}
+					{{ error }}
+				{% endfor %}
+			</div>
+		</div>
+
+	</div>
+
+	<div class="card-body">
+		<button type="submit" class="btn btn-dark" style="width: 100%;">Publish!</button>
+	</div>
+
+</form>
+
+
+
+
+{% endblock %}

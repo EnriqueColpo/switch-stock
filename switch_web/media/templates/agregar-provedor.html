@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load static %}
+
+<!DOCTYPE html>
+
+{% block card-header %}
+Provedor
+{% endblock%}
+
+{% block container %}
+
+<form method="POST" enctype="multipart/form-data">
+    <div class="card-body">
+        {% csrf_token %}
+    
+        {# Website field #}
+        <div class="form-group">
+            <input
+                class="form-control {% if form.provedor_nombre.errors %}is-invalid{% endif %}"
+                type="text"
+                name="provedor_nombre"
+                placeholder="Nombre del provedor"
+            >
+            <div class="invalid-feedback">
+                {% for error in form.provedor_nombre.errors %}{{ error }}{% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <div class="form-group">
+            <input
+                class="form-control {% if form.provedor_apellido.errors %}is-invalid{% endif %}"
+                type="text"
+                name="provedor_apellido"
+                placeholder="Title"
+            >
+            <div class="invalid-feedback">
+                {% for error in form.provedor_apellido.errors %}{{ error }}{% endfor %}
+            </div>
+        </div>
+    </div>
+    
+    <div class="card-body">
+        <div class="form-group">
+            <input
+                class="form-control {% if form.provedor_email.errors %}is-invalid{% endif %}"
+                type="text"
+                name="provedor_email"
+                placeholder="Email"
+            >
+            <div class="invalid-feedback">
+                {% for error in form.provedor_email.errors %}{{ error }}{% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="card-body">
+        
+        <div class="form-group">
+            <input
+                class="form-control {% if form.provedor_telefono.errors %}is-invalid{% endif %}"
+                type="text"
+                name="provedor_telefono"
+                placeholder="Telefono"
+            >
+            <div class="invalid-feedback">
+                {% for error in form.provedor_telefono.errors %}{{ error }}{% endfor %}
+            </div>
+        </div>
+            
+    </div>
+
+    <div class="card-body">
+        <button type="submit" class="btn btn-dark" style="width: 100%;">Publish!</button>
+    </div>
+    
+    
+    </form>
+
+</div>
+
+
+
+
+{% endblock %}
